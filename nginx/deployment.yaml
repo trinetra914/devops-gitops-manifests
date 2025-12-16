@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: dharma473/devops-sample-app:2
-          imagePullPolicy: IfNotPresent
+          image: dharma473/devops-sample-app:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
           resources:
