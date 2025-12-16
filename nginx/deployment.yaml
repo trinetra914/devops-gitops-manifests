@@ -16,10 +16,10 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: dharma473/devops-sample-app:1
+          image: dharma473/devops-sample-app:2
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 95
+            - containerPort: 80
           resources:
             requests:
               cpu: "100m"
