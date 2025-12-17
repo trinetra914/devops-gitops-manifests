@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: nginx-alerts
+  namespace: monitoring
+spec:
+  groups:
+    - name: nginx.rules
+      rules:
+        - alert: NginxPodDown
+          expr: kube_deployment_status_replicas_available{deployment="nginx-app"} < 1
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: "Nginx pod is down"
+            description: "No nginx pods are running for more than 1 minute"
